@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { Input, Button, Spinner } from "@nextui-org/react";
@@ -84,7 +84,7 @@ const SendMoney = () => {
                   }
                 />
               </div>
-              <div className="flex justify-center">
+              <div className="flex flex-col space-y-4 justify-center">
                 {transfer ? (
                   <Spinner label="Processing Payment..." color="warning" />
                 ) : (
@@ -96,6 +96,12 @@ const SendMoney = () => {
                     Initiate Transfer
                   </Button>
                 )}
+                <Button
+                  color="warning"
+                  className="text-white w-full bold text-xl"
+                >
+                  <Link to={"/dashboard"}>Back to Dashboard</Link>
+                </Button>
               </div>
             </div>
           </div>
