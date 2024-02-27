@@ -101,12 +101,14 @@ function Landing() {
           <img className="w-96" src="https://i.ibb.co/5BCcDYB/Remote2.png" />
         </div>
       </aside>
-      <footer className="text-center">
+      <footer className="text-center mt-20">
         <hr />
         <p className="text-center py-5">
-          Crafted with ❤️ by{" "}
+          Backend is deployed on free plan, so it may be down.
           <span className="font-black">
-            <a href="https://twitter.com/salnetxyz">@salnetxyz</a>
+            <a target="_blank" href={import.meta.env.VITE_BASE_URL}>
+              🚀 Check Out the Backend
+            </a>
           </span>
         </p>
       </footer>
