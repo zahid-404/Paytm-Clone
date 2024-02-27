@@ -1,7 +1,7 @@
-import express from "express";
-import { Account } from "../db.js";
-import authMiddleware from "../middleware.js";
-import mongoose from "mongoose";
+const express = require("express");
+const mongoose = require("mongoose");
+const { Account } = require("../db.js");
+const { authMiddleware } = require("../middleware.js");
 
 const accountRouter = express.Router();
 
@@ -51,4 +51,5 @@ accountRouter.post("/transfer", authMiddleware, async (req, res) => {
   await session.commitTransaction();
   res.status(200).json({ msg: "Transaction successful" });
 });
-export default accountRouter;
+
+module.exports = accountRouter;

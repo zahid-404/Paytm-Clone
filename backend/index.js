@@ -1,8 +1,8 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import rootRouter from "./routes/index.js";
+const express = require('express');
+const cors = require("cors");
+const mongoose = require("mongoose")
+const dotenv = require("dotenv")
+const rootRouter = require("./routes/index");
 
 const PORT = process.env.PORT || 3000;
 const app = express();

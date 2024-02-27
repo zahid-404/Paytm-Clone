@@ -17,13 +17,12 @@ export default function Appbar({ user }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const logout = () => {
+  const logout = async () => {
     setLoading(true);
     localStorage.removeItem("token");
-    setTimeout(() => {
-      navigate("/signin");
-      setLoading(false);
-    }, 2000);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    navigate("/signin");
+    setLoading(false);
   };
 
   return (

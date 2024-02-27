@@ -1,9 +1,9 @@
-import express from "express";
-import { User, Account } from "../db.js";
-import authMiddleware from "../middleware.js";
-import zod from "zod";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+const express = require("express");
+const { User, Account } = require("../db.js");
+const { authMiddleware } = require("../middleware.js");
+const zod = require("zod");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 
 dotenv.config();
 const userRouter = express.Router();
@@ -130,4 +130,4 @@ userRouter.get("/bulk", async (req, res) => {
     })),
   });
 });
-export default userRouter;
+module.exports = userRouter;
