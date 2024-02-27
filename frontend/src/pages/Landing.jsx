@@ -110,6 +110,8 @@ function Landing() {
               🚀 Check Out the Backend
             </a>
           </span>
+          <br></br>
+          and wait until you see <span className="italic">`Backend is Live`</span>
         </p>
       </footer>
 

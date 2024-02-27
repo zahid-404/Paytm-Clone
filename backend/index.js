@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/api/v1", rootRouter);
 
 app.get("/api/v1", (req, res) => {
-  res.json({ msg: "Hello from the server" });
+  res.json({ msg: "Backend is Live" });
 });
 
 if (!process.env.MONGODB_URI) {
