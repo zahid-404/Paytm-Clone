@@ -16,9 +16,8 @@ const SendMoney = () => {
     try {
       if (amount <= 0) {
         setToast({ type: "Warning", msg: "Amount must be greater than 0." });
-        setTimeout(() => {
-          setToast({ type: "", msg: "" });
-        }, 2000);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        setToast({ type: "", msg: "" });
         return;
       }
 
@@ -36,21 +35,17 @@ const SendMoney = () => {
         }
       );
 
-      setTimeout(() => {
-        setTransfer(false);
-        setToast({ type: "Success", msg: response?.data?.msg });
-        setTimeout(() => {
-          setToast({ type: "", msg: "" });
-        }, 2000);
-      }, 2000);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setTransfer(false);
+      setToast({ type: "Success", msg: response?.data?.msg });
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setToast({ type: "", msg: "" });
     } catch (error) {
-      setTimeout(() => {
-        setTransfer(false);
-        setToast({ type: "Error", msg: error?.response?.data?.msg });
-        setTimeout(() => {
-          setToast({ type: "", msg: "" });
-        }, 2000);
-      }, 2000);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setTransfer(false);
+      setToast({ type: "Error", msg: error?.response?.data?.msg });
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setToast({ type: "", msg: "" });
     }
   };
 
