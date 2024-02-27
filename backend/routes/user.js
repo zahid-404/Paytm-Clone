@@ -15,6 +15,12 @@ const signupBody = zod.object({
   password: zod.string().min(6),
 });
 
+// Me
+userRouter.get("/me", authMiddleware, async (req, res) => {
+  const user = await User.findById(req.userId);
+  return res.status(200).json({ user });
+});
+
 // signup route
 userRouter.post("/signup", async (req, res) => {
   const { success } = signupBody.safeParse(req.body);
@@ -104,12 +110,12 @@ userRouter.get("/bulk", async (req, res) => {
     $or: [
       {
         firstName: {
-          $regex: filter,
+          $regex: new RegExp(filter, "i"),
         },
       },
       {
         lastName: {
-          $regex: filter,
+          $regex: new RegExp(filter, "i"),
         },
       },
     ],
