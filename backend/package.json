@@ -6,7 +6,7 @@
   "engines": {
     "node": "14.x"
   },
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "npx nodemon index.js",
     "start": "node index.js"
