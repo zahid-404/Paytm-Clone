@@ -9,7 +9,7 @@ import {
   User,
   Spinner,
 } from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import paytmLogo from "../assets/paytm.png";
 import { useState } from "react";
 
@@ -31,7 +31,9 @@ export default function Appbar({ user }) {
         <Spinner label="Logged Out" color="danger" labelColor="danger" />
       ) : (
         <NavbarBrand>
-          <img src={paytmLogo} width={80} height={80} />
+          <Link to={"/"}>
+            <img src={paytmLogo} width={80} height={80} />
+          </Link>
         </NavbarBrand>
       )}
 
