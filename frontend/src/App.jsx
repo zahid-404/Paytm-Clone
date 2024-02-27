@@ -6,6 +6,7 @@ import Signin from "./pages/Signin";
 import Dashboard from "./pages/Dashboard";
 import SendMoney from "./pages/SendMoney";
 import Landing from "./pages/Landing";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/send" element={<SendMoney />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </NextUIProvider>
     </>
