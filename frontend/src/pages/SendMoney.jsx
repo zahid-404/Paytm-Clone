@@ -8,7 +8,7 @@ const SendMoney = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const name = searchParams.get("name");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState();
   const [transfer, setTransfer] = useState(false);
   const [toast, setToast] = useState({ type: "", msg: "" });
 
@@ -21,6 +21,7 @@ const SendMoney = () => {
         }, 2000);
         return;
       }
+
       setTransfer(true);
       const response = await axios.post(
         import.meta.env.VITE_BASE_URL + "/api/v1/account/transfer",
@@ -43,7 +44,6 @@ const SendMoney = () => {
         }, 2000);
       }, 2000);
     } catch (error) {
-      console.error(error.response);
       setTimeout(() => {
         setTransfer(false);
         setToast({ type: "Error", msg: error?.response?.data?.msg });
