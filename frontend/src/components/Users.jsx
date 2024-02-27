@@ -12,7 +12,7 @@ export const Users = ({ signedInUser }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/user/bulk?filter=" + filter
+          import.meta.env.VITE_BASE_URL + "/user/bulk?filter=" + filter
         );
         setUsers(response.data.user);
       } catch (error) {

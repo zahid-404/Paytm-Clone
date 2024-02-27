@@ -32,7 +32,7 @@ const Signin = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     const response = await axios.post(
-      import.meta.env.VITE_BASE_URL + "/api/v1/user/signin",
+      import.meta.env.VITE_BASE_URL + "/user/signin",
       data
     );
     localStorage.setItem("token", response.data.token);

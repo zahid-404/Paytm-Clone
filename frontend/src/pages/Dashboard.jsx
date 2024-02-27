@@ -11,7 +11,7 @@ const Dashboard = () => {
     const fetchBalance = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/account/balance",
+          import.meta.env.VITE_BASE_URL + "/account/balance",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -26,7 +26,7 @@ const Dashboard = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/user/me",
+          import.meta.env.VITE_BASE_URL + "/user/me",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

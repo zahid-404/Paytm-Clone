@@ -14,7 +14,7 @@ function Landing() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/user/me",
+          import.meta.env.VITE_BASE_URL + "/user/me",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -101,6 +101,15 @@ function Landing() {
           <img className="w-96" src="https://i.ibb.co/5BCcDYB/Remote2.png" />
         </div>
       </aside>
+      <footer className="text-center">
+        <hr />
+        <p className="text-center py-5">
+          Crafted with ❤️ by{" "}
+          <span className="font-black">
+            <a href="https://twitter.com/salnetxyz">@salnetxyz</a>
+          </span>
+        </p>
+      </footer>
 
       <script
         data-name="BMC-Widget"
