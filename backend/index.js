@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose")
-const dotenv = require("dotenv")
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const rootRouter = require("./routes/index");
 
 const PORT = process.env.PORT || 3000;
@@ -32,3 +32,5 @@ mongoose.connection.on("connected", () => {
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });
+
+module.exports = app;
