@@ -1,35 +1,20 @@
 import paytmLogo from "../assets/paytm.png";
 import { Button, User } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser } from "../redux/userSlice";
 
 function Landing() {
-  const [user, setUser] = useState({});
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [isLoggedIn, setIsLoggedIn] = useState(!!token);
+  const { user } = useSelector((state) => state.user.userInfo);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/user/me",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        setUser(response.data.user);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    };
-
-    fetchUser();
-  }, []);
-
+    dispatch(fetchUser());
+  }, [dispatch]);
   return (
     <div>
       <div className="sticky top-0 z-50">
@@ -111,7 +96,8 @@ function Landing() {
             </a>
           </span>
           <br></br>
-          and wait until you see <span className="italic">`Backend is Live`</span>
+          and wait until you see{" "}
+          <span className="italic">`Backend is Live`</span>
         </p>
       </footer>
 

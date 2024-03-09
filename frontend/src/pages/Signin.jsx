@@ -15,10 +15,15 @@ import axios from "axios";
 import { EyeFilledIcon } from "../components/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "../components/EyeSlashFilledIcon";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "../redux/userSlice";
 
 const Signin = () => {
+  const dispatch = useDispatch();
+
   // password toggle
   const [isVisible, setIsVisible] = useState(false);
+
   const toggleVisibility = () => setIsVisible(!isVisible);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -36,6 +41,8 @@ const Signin = () => {
       data
     );
     localStorage.setItem("token", response.data.token);
+    dispatch(fetchUser());
+
     setTimeout(() => {
       navigate("/dashboard");
       setLoading(false);
